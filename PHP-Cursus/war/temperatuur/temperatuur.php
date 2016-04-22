@@ -1,12 +1,8 @@
 <?php
-$leeftijd = 2;
-if ($leeftijd > 65) {
-	echo "het kost 5 euro";
-} else if ($leeftijd >= 12 && $leeftijd < 65) {
-	echo "het kost 5 euro";
-} else if ($leeftijd < 3) {
-	echo "het is gratis";
-} else {
-	echo "het kost 10 euro";
-}
-?>
+print("Temperatuur van Celsius naar Fahrenheit:<p>"); 
+
+$Fahrenheit = 32;
+$Celsius = 10;
+$Celsius = $Celsius * 1.8 + $Fahrenheit;
+	echo "<p>{$Celsius}</p>";
+print("</p>");
