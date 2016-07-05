@@ -1,8 +1,8 @@
 <?php
-print("Temperatuur van Celsius naar Fahrenheit:<p>"); 
+function temperatuur($Celsius) {
+$Fahrenheit = $Celsius * 1.8 + 32;
+echo $Celsius ." Celsius is " .$Fahrenheit. " Fahrenheit";
+}
 
-$Fahrenheit = 32;
-$Celsius = 10;
-$Celsius = $Celsius * 1.8 + $Fahrenheit;
-	echo "<p>{$Celsius}</p>";
-print("</p>");
+temperatuur(22);
+?>
