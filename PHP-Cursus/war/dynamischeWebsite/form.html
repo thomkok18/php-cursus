@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<p><b>Pagina met formulier -> form.php</b></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+<form action="resultaat.php" method="GET">
+	Inlognaam <input type="text" name="inlognaam" value="">
+	Adres <input type="text" name="adres" value="">
+	Email <input type="email" name="email" value="">
+	Wachtwoord <input type="password" name="wachtwoord" value="">
+<script>
+if ("value" = ""){
+$switch = true;
+} else{
+$switch = false;
+}
+</script>
+	<input type="submit" name="verstuur" value="verstuur" disabled="<?$switch?>">
+</form>
+</body>
+</html>
