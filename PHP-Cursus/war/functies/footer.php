@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<footer><b>
 		Dit is de footer. Dit staat in footer.php.

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<content><b>
 		Hier is de PHP code. Dit staat in index.php.
