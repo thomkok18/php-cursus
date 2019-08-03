@@ -1,0 +1,38 @@
+.tabelWinkel {
+    margin-top: 42px;
+}
+
+#voorraadSelectbox {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+#productAfbeelding {
+    height: 100px;
+    width: 100px;
+}
+
+#winkelDiv {
+    margin-bottom: 20px;
+}
+
+#productAfbeeldingDiv {
+    text-align: center;
+}
+
+#productTitel {
+    margin-top: 0;
+}
+
+#winkelwagenButton {
+    margin-bottom:20px;
+}
+
+#uitverkocht {
+    color:red;
+    padding-left:0;
+}
+
+#winkelContainer {
+    margin-bottom: 50px;
+}
