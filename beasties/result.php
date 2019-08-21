@@ -20,6 +20,7 @@ if (!count($messages) == 0) {
         $html .= $message;
     }
     include("index.php");
+    echo "<br>";
     echo $html;
 } else {
     echo "Aap: " . $_GET["brulaap"] . "<br>";
