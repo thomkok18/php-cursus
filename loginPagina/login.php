@@ -5,15 +5,18 @@ $users = array(
     "klaas@carpets.nl" => "snoepje777",
     "truushendriks@wegweg.nl" => "arkiearkie201",
 );
-if (isset($_GET["loguit"])) {
-    $_SESSION = array();
-    session_destroy();
-}
+
 if (isset($_POST["knop"]) && isset($users[$_POST["login"]]) && $users[$_POST["login"]] == $_POST["pwd"]) {
     $_SESSION["user"] = $_POST["login"];
     $message = "Welkom " . $_SESSION["user"];
 } else {
     $message = "Sorry, geen toegang!";
+}
+
+if (isset($_GET["loguit"])) {
+    $_SESSION = array();
+    $message = "Inloggen";
+    session_destroy();
 }
 ?>
 
