@@ -1,6 +1,6 @@
 <?php
 include_once("Db.php");
-include_once("lib/Attractie.php");
+include_once("Attractie.php");
 
 class AttractieLijst {
     private $attracties;

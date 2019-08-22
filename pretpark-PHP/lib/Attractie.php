@@ -1,7 +1,7 @@
 <?php
-include_once('lib/Db.php');
-include_once('lib/Gebruiker.php');
-include_once('lib/Reactie.php');
+include_once('Db.php');
+include_once('Gebruiker.php');
+include_once('Reactie.php');
 
 class Attractie {
     private $idattractie;

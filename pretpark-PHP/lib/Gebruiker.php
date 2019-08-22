@@ -1,6 +1,6 @@
 <?php
-include_once('lib/Db.php');
-include_once('lib/Rechten.php');
+include_once('Db.php');
+include_once('Rechten.php');
 
 class Gebruiker {
     private $idgebruiker;

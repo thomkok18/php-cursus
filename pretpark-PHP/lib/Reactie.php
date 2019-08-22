@@ -1,6 +1,6 @@
 <?php
-include_once("lib/Db.php");
-include_once("lib/Gebruiker.php");
+include_once("Db.php");
+include_once("Gebruiker.php");
 
 class Reactie {
     private $idreactie;

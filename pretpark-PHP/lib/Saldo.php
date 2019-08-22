@@ -1,5 +1,5 @@
 <?php
-include_once('lib/Db.php');
+include_once('Db.php');
 
 class Saldo {
     private $idsaldo;
