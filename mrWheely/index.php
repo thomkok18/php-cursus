@@ -3,18 +3,24 @@ include("lib/AutoOverzicht.php");
 include "lib/Auto.php";
 
 $options = array("--Alle merken--", "Audi", "Ferrari", "Fiat", "Mercedes", "Opel", "Volkswagen");
+$minprijs = 0;
+$maxprijs = 99999999999999;
 
-if (!empty($_POST["minprijs"])) {
-    $minprijs = $_POST["minprijs"];
-} else {
-    $minprijs = 0;
+if ($_POST) {
+    if ($_POST["minprijs"] !== null) {
+        $minprijs = $_POST["minprijs"];
+    } else {
+        $minprijs = 0;
+    }
+
+    if ($_POST["maxprijs"] !== null) {
+        $maxprijs = $_POST["maxprijs"];
+    } else {
+        $maxprijs = 99999999999999;
+    }
 }
 
-if (!empty($_POST["maxprijs"])) {
-    $maxprijs = $_POST["maxprijs"];
-} else {
-    $maxprijs = 99999999999999;
-}
+
 
 $ao = new AutoOverzicht();
 
@@ -74,25 +80,35 @@ $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 21670.00</h5>", "
                     <label for="sel1">Merk:</label>
                     <select id="sel1" class="form-control" id="merk" name="merk">
                         <?php foreach ($options as $option) { ?>
-                            <option <?php if ($option === $_POST["merk"] || $option === "--Alle merken--") {echo 'selected="selected"';}?> value="<?php echo $option; ?>"><?php echo $option; ?></option>
+                            <?php if ($_POST) { ?>
+                                <option <?php if ($option === $_POST["merk"]) {echo 'selected="selected"';} ?> value="<?php echo $option; ?>"><?php echo $option; ?></option>
+                            <?php } else { ?>
+                                <option <?php if ($option === "--Alle merken--") {echo 'selected="selected"';} ?> value="<?php echo $option; ?>"><?php echo $option; ?></option>
+                            <?php } ?>
                         <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="minprijs">Minimale prijs:</label>
-                    <input type="text" class="form-control" id="minprijs" name="minprijs" value="<?php if ($_POST["minprijs"] === $minprijs) { echo $minprijs; }?>">
+                    <input type="text" class="form-control" id="minprijs" name="minprijs" value="<?php echo $minprijs; ?>">
                 </div>
                 <div class="form-group">
                     <label for="maxprijs">Maximale prijs:</label>
-                    <input type="text" class="form-control" id="maxprijs" name="maxprijs" value="<?php if ($_POST["maxprijs"] === $maxprijs) { echo $maxprijs; }?>">
+                    <input type="text" class="form-control" id="maxprijs" name="maxprijs" value="<?php if ($maxprijs !== 99999999999999) {echo $maxprijs;} ?>">
                 </div>
                 <button type="submit" name="knop" value="submit" class="btn btn-default">Submit</button>
             </form>
             <div>
                 <div>
-                    <?php foreach ($ao->getAutoSoort() as $auto) {
-                        if ((!$_POST["merk"] && !$_POST["minprijs"] && !$_POST["maxprijs"] || ($_POST["merk"] === $auto->getMerk() || $_POST["merk"] === "--Alle merken--") && $minprijs <= $auto->getPrijs() && $maxprijs >= $auto->getPrijs())) { ?>
-                    <div value="<?php echo $auto->getPrijs(); ?>, <?php echo $auto->getMerk(); ?>" class="wheely-img" style="background-image:url('<?php echo $auto->getLink(); ?>')"><?php echo $auto->getAuto(); ?></div><?php } } ?>
+                    <?php foreach ($ao->getAutoSoort() as $auto) { ?>
+                    <?php if ($_POST) { ?>
+                            <?php if ((!$_POST["merk"] && !$_POST["minprijs"] && !$_POST["maxprijs"] || ($_POST["merk"] === $auto->getMerk() || $_POST["merk"] === "--Alle merken--") && $minprijs <= $auto->getPrijs() && $maxprijs >= $auto->getPrijs())) { ?>
+                                <div value="<?php echo $auto->getPrijs(); ?>, <?php echo $auto->getMerk(); ?>" class="wheely-img" style="background-image:url('<?php echo $auto->getLink(); ?>')"><?php echo $auto->getAuto(); ?></div>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <div value="<?php echo $auto->getPrijs(); ?>, <?php echo $auto->getMerk(); ?>" class="wheely-img" style="background-image:url('<?php echo $auto->getLink(); ?>')"><?php echo $auto->getAuto(); ?></div>
+                        <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
