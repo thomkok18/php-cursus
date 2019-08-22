@@ -132,7 +132,7 @@ include("layout/header.php");
                 </div>
             </div>
             <div class="form-group">
-                <label for="wachtwoordHerhalen" class="col-lg-2 control-label">Wachtwoord herhalen</label>
+                <label for="herhaalWachtwoord" class="col-lg-2 control-label">Wachtwoord herhalen</label>
                 <div class="col-lg-10">
                     <input required type="password" class="form-control" id="herhaalWachtwoord" name="herhaalWachtwoord" value="">
                 </div>

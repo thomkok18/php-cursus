@@ -36,7 +36,7 @@ $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 16340.00</h5>", "
 $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 18340.00</h5>", "img/volkswagen2.jpg", 18340.00, "Volkswagen"));
 $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 21670.00</h5>", "img/volkswagen3.png", 21670.00, "Volkswagen"));
 ?>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -72,18 +72,18 @@ $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 21670.00</h5>", "
             <form action="index.php" method="post">
                 <div class="form-group">
                     <label for="sel1">Merk:</label>
-                    <select class="form-control" id="merk" name="merk">
+                    <select id="sel1" class="form-control" id="merk" name="merk">
                         <?php foreach ($options as $option) { ?>
                             <option <?php if ($option === $_POST["merk"] || $option === "--Alle merken--") {echo 'selected="selected"';}?> value="<?php echo $option; ?>"><?php echo $option; ?></option>
                         <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="type">Minimale prijs:</label>
+                    <label for="minprijs">Minimale prijs:</label>
                     <input type="text" class="form-control" id="minprijs" name="minprijs" value="<?php if ($_POST["minprijs"] === $minprijs) { echo $minprijs; }?>">
                 </div>
                 <div class="form-group">
-                    <label for="type">Maximale prijs:</label>
+                    <label for="maxprijs">Maximale prijs:</label>
                     <input type="text" class="form-control" id="maxprijs" name="maxprijs" value="<?php if ($_POST["maxprijs"] === $maxprijs) { echo $maxprijs; }?>">
                 </div>
                 <button type="submit" name="knop" value="submit" class="btn btn-default">Submit</button>

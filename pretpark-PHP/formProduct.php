@@ -105,7 +105,7 @@ include("layout/header.php");
                 </p>
             </div>
             <div class="form-group">
-                <label for="prijs" class="col-lg-2 control-label">Bijvullen</label>
+                <label for="bijvullenSelectbox<?= htmlspecialchars($id); ?>" class="col-lg-2 control-label">Bijvullen</label>
                 <div class="col-lg-10">
                     <select id="bijvullenSelectbox<?= htmlspecialchars($id); ?>" class="bijvullen" name="bijvullen" onchange="refresh(<?= htmlspecialchars($id); ?>)">
                         <?php for ($voorraad = 0; $voorraad <= 1000; $voorraad++) { ?>

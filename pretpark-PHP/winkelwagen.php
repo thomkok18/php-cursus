@@ -95,11 +95,13 @@ include("layout/header.php");
                             </div>
                             <div class="col-lg-5">
                                 <div class="col-xs-12 col-sm-6">
-                                    <select id="voorraadSelectbox<?= $item; ?>" class="tabelWinkel voorraad col-xs-12" name="aantal" onchange="refresh(<?= $_SESSION['login']['idgebruiker']; ?>, <?= $item; ?>);">
-                                        <?php for ($prod = 0; $prod <= $voorraad; $prod++) { ?>
-                                            <option <?php if ($prod == $aantalProd) { ?> selected <?php } ?> ><?= $prod; ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <label>
+                                        <select id="voorraadSelectbox<?= $item; ?>" class="tabelWinkel voorraad col-xs-12" name="aantal" onchange="refresh(<?= $_SESSION['login']['idgebruiker']; ?>, <?= $item; ?>);">
+                                            <?php for ($prod = 0; $prod <= $voorraad; $prod++) { ?>
+                                                <option <?php if ($prod == $aantalProd) { ?> selected <?php } ?> ><?= $prod; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </label>
                                 </div>
                                 <div id="prijsDiv" class="col-xs-12 col-sm-6">
                                     <b id="prijs"><?= htmlspecialchars('€ ' . number_format($prijs * $aantalProd, 2)); ?></b>
@@ -119,7 +121,8 @@ include("layout/header.php");
                             <div class="col-lg-7"></div>
                             <div class="col-lg-5">
                                 <p id="verzendskosten" class="col-xs-12 col-sm-6">Verzendskosten</p>
-                                <p id="verzending" class="col-xs-12 col-sm-6"><?= htmlspecialchars('€ ' . number_format($verzendkosten, 2)); ?></p>
+                                <p id="verzending"
+                                   class="col-xs-12 col-sm-6"><?= htmlspecialchars('€ ' . number_format($verzendkosten, 2)); ?></p>
                             </div>
                         </div>
                         <div id="totaalDiv" class="col-xs-12">
@@ -137,7 +140,7 @@ include("layout/header.php");
                         </div>
                     </div>
 
-                    <?php } else { ?>
+                <?php } else { ?>
                     <p id="winkelwagenLeeg"><?= htmlspecialchars('Er zijn nog geen producten in het winkelwagentje.'); ?></p>
                 <?php } ?>
 

@@ -62,17 +62,21 @@ include("layout/header.php");
             </div>
         </div>
         <?php if (isset($_SESSION['login'])) { ?>
-            <form class="form-horizontal" action="<?= htmlspecialchars($_SERVER['PHP_SELF'] . "?id=" . $id); ?>" method="post">
+            <form class="form-horizontal" action="<?= htmlspecialchars($_SERVER['PHP_SELF'] . "?id=" . $id); ?>"
+                  method="post">
                 <div class="form-group">
                     <div id="reactieBalk" class="col-xs-12">
                         <div class="col-xs-12 col-sm-1">
-                            <img id="profielAfbeelding" src="<?= htmlspecialchars($_SESSION['login']['avatar']); ?>" alt="<?= htmlspecialchars($gebruiker->getLogin()); ?>">
+                            <img id="profielAfbeelding" src="<?= htmlspecialchars($_SESSION['login']['avatar']); ?>"
+                                 alt="<?= htmlspecialchars($gebruiker->getLogin()); ?>">
                         </div>
                         <div class="col-xs-12 col-sm-10">
-                            <textarea id="tekstvak" class="form-control" name="reactietekst" placeholder="Voeg reactie toe" rows="1"></textarea>
+                            <label><textarea id="tekstvak" class="form-control" name="reactietekst"
+                                             placeholder="Voeg reactie toe" rows="1"></textarea></label>
                         </div>
                         <div class="col-xs-12 col-sm-1">
-                            <button id="reageerButton" type="submit" class="btn btn-default" name="toevoegen">Reageren</button>
+                            <button id="reageerButton" type="submit" class="btn btn-default" name="toevoegen">Reageren
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -86,20 +90,23 @@ include("layout/header.php");
         ?>
         <div id="regel">
             <div class="col-md-1">
-                <img id="reactieProfielfoto" src="<?= htmlspecialchars($gebruiker->getAvatar()); ?>" alt="<?= htmlspecialchars($gebruiker->getLogin()); ?>">
+                <img id="reactieProfielfoto" src="<?= htmlspecialchars($gebruiker->getAvatar()); ?>"
+                     alt="<?= htmlspecialchars($gebruiker->getLogin()); ?>">
             </div>
             <div class="col-md-11">
                 <?php if (isset($_SESSION['login'])) {
                     if ($_SESSION['login']['login'] == $gebruiker->getLogin()) {
                         if ($reactie->getIdreactie() != $_GET['idreactie']) { ?>
                             <div id="bewerkButton">
-                                <img id="bewerkImage" onclick="bewerken(<?= $id; ?>,<?= $reactie->getIdreactie(); ?>)" src="img/bewerk.jpg">
+                                <img id="bewerkImage" onclick="bewerken(<?= $id; ?>,<?= $reactie->getIdreactie(); ?>)"
+                                     src="img/bewerk.jpg" alt="bewerken">
                                 <a href="attractie.php?id=<?= htmlspecialchars($attractie->getIdattractie()); ?>&deleteReactie=<?= htmlspecialchars($reactie->getIdreactie()); ?>"><img
-                                            id="prullenbakImage" src="img/prullenbakOpen.jpg"></a>
+                                            id="prullenbakImage" src="img/prullenbakOpen.jpg" alt="prullenbak"></a>
                             </div>
                         <?php } else { ?>
                             <div id="cancelButton">
-                                <img id="cancelImage" onclick="cancel(<?= $id; ?>)" src="img/cancel.png">
+                                <img id="cancelImage" onclick="cancel(<?= $id; ?>)" src="img/cancel.png"
+                                     alt="annuleren">
                             </div>
                         <?php }
                     }
@@ -109,13 +116,16 @@ include("layout/header.php");
                     <p id="reactieTekst"><?= htmlspecialchars($reactie->getReactietekst()); ?></p>
                 <?php } else { ?>
                     <form class="form-horizontal" method="post">
-                        <input hidden name="id" value="<?= $id; ?>">
-                        <input hidden name="idreactie" value="<?= $reactie->getIdreactie(); ?>">
+                        <label><input hidden name="id" value="<?= $id; ?>"></label>
+                        <label><input hidden name="idreactie" value="<?= $reactie->getIdreactie(); ?>"></label>
                         <div id="reactieAanpassen" class="col-xs-10">
-                            <textarea class="form-control" name="reactietekstAanpassen" rows="4"><?= $reactie->getReactietekst(); ?></textarea>
+                            <label><textarea class="form-control" name="reactietekstAanpassen"
+                                             rows="4"><?= $reactie->getReactietekst(); ?></textarea></label>
                         </div>
                         <div class="col-xs-2">
-                            <button id="aanpassenButton" type="submit" class="btn btn-default" name="aanpassen">Aanpassen</button>
+                            <button id="aanpassenButton" type="submit" class="btn btn-default" name="aanpassen">
+                                Aanpassen
+                            </button>
                         </div>
                     </form>
                 <?php } ?>
@@ -126,7 +136,6 @@ include("layout/header.php");
             <?php } ?>
         </div>
     </div>
-</div>
     <script>
         function bewerken(idattractie, idreactie) {
             window.location.href = "attractie.php?id=" + idattractie + "&idreactie=" + idreactie;

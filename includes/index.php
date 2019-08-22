@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
-	<content><b>
-		Hier is de PHP code. Dit staat in index.php.
-	</content></b>
-	<br>
+<html lang="en">
+<content>
+    <b>Hier is de PHP code. Dit staat in index.php.</b>
+</content>
+<br>
 </html>
 
 <?php

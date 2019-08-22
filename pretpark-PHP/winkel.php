@@ -66,11 +66,13 @@ include("layout/header.php");
         </div>
 
         <?php foreach ($producten as $key => $prod) { ?>
-            <form class="form-horizontal" method="post" action="winkel.php?action=add&id=<?= htmlspecialchars($prod->getIdproduct()); ?>">
+            <form class="form-horizontal" method="post"
+                  action="winkel.php?action=add&id=<?= htmlspecialchars($prod->getIdproduct()); ?>">
                 <div id="winkelDiv" class="col-lg-12">
                     <div class="col-lg-5">
                         <div id="productAfbeeldingDiv" class="col-xs-12 col-sm-6">
-                            <img id="productAfbeelding" src="<?= htmlspecialchars($prod->getUrlFoto()); ?>" alt="Product">
+                            <img id="productAfbeelding" src="<?= htmlspecialchars($prod->getUrlFoto()); ?>"
+                                 alt="Product">
                         </div>
                         <div class="col-xs-12 col-sm-6 tabelWinkel">
                             <h3 id="productTitel"><?= htmlspecialchars($prod->getTitel()); ?></h3>
@@ -84,14 +86,18 @@ include("layout/header.php");
                     <div class="col-lg-5">
                         <div class="col-xs-12 col-sm-6">
                             <?php if ($prod->getVoorraad() != 0) { ?>
-                            <select id="voorraadSelectbox" class="tabelWinkel col-xs-12" name="aantal">
-                                <?php for ($i = 0; $i <= $prod->getVoorraad(); $i++) { ?>
-                                    <option><?= htmlspecialchars($i); ?></option>
-                                <?php } ?>
-                            </select>
+                            <label>
+                                <select id="voorraadSelectbox" class="tabelWinkel col-xs-12" name="aantal">
+                                    <?php for ($i = 0; $i <= $prod->getVoorraad(); $i++) { ?>
+                                        <option><?= htmlspecialchars($i); ?></option>
+                                    <?php } ?>
+                                </select>
+                            </label>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <button id="winkelwagenButton" class="tabelWinkel btn col-xs-12" type="submit" name="winkelwagen">Winkelwagen</button>
+                            <button id="winkelwagenButton" class="tabelWinkel btn col-xs-12" type="submit"
+                                    name="winkelwagen">Winkelwagen
+                            </button>
                         </div>
                         <?php } else { ?>
                             <div class="col-xs-12">

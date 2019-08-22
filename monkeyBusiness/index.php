@@ -21,7 +21,7 @@ $ao->voegAapToe(new Aap("Mensaap", "https://www.google.nl/search?q=Mensaap&amp;t
 $ao->voegAapToe(new Aap("Spinaap", "https://www.google.nl/search?q=Spinaap&amp;tbm=isch"));
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Monkey Business</title>
     <meta charset="UTF-8">
@@ -30,9 +30,9 @@ $ao->voegAapToe(new Aap("Spinaap", "https://www.google.nl/search?q=Spinaap&amp;t
     <link href="http://fonts.googleapis.com/css?family=Bangers" rel="stylesheet" type="text/css">
 </head>
 <body>
-<img src="img/monkey-business.jpg">
+<img src="img/monkey-business.jpg" alt="monkey business">
 <h1>select your monkey!</h1>
-<img src="img/monkey_swings.png">
+<img src="img/monkey_swings.png" alt="monkey swings">
 <?php foreach ($ao->getAapSoort() as $aap) { ?>
 <a class="aap" href="<?php echo $aap->getLink(); ?>"><?php echo $aap->getAap()."<br>"; } ?></a>
 </body>
