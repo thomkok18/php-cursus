@@ -9,13 +9,11 @@ if (isset($_GET["loguit"])) {
     $_SESSION = array();
     session_destroy();
 }
-if (isset($_POST["knop"])
-    && isset($users[$_POST["login"]])
-    && $users[$_POST["login"]] == $_POST["pwd"]) {
+if (isset($_POST["knop"]) && isset($users[$_POST["login"]]) && $users[$_POST["login"]] == $_POST["pwd"]) {
     $_SESSION["user"] = $_POST["login"];
     $message = "Welkom " . $_SESSION["user"];
 } else {
-    $message = "Inloggen";
+    $message = "Sorry, geen toegang!";
 }
 ?>
 

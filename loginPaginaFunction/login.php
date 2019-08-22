@@ -9,27 +9,26 @@ if (isset($_GET["loguit"])) {
     $_SESSION = array();
     session_destroy();
 }
-if (isset($_POST["knop"])
-    && isset($users[$_POST["login"]])
-    && $users[$_POST["login"]] == $_POST["pwd"]) {
+if (isset($_POST["knop"]) && isset($users[$_POST["login"]]) && $users[$_POST["login"]] == $_POST["pwd"]) {
     $_SESSION["user"] = $_POST["login"];
     $message = "Welkom " . $_SESSION["user"];
 } else {
-    $message = "Inloggen";
+    $message = "Sorry, geen toegang!";
 }
 function boolean($naam, $wachtwoord) {
-    if ($naam) {
+    if ($naam !== null && $naam !== '') {
         $naam = true;
     } else {
         $naam = false;
     }
-    if ($wachtwoord) {
+    if ($wachtwoord !== null && $wachtwoord !== '') {
         $wachtwoord = true;
     } else {
         $wachtwoord = false;
     }
-    return "Email is: ".$naam."<br>"."Password is: ".$wachtwoord;
+    return "Email is: " . $naam . "<br>" . "Password is: " . $wachtwoord;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,11 @@ function boolean($naam, $wachtwoord) {
     </div>
     <input type="submit" name="knop" value="Login">
 </form>
-<p><?php echo boolean($_POST["login"], $_POST["pwd"]); ?></p>
+<p>
+    <?php if ($_POST) {
+        echo boolean($_POST["login"], $_POST["pwd"]);
+    } ?>
+</p>
 <p><a href="website.php">Website</a></p>
 <p><a href="login.php?loguit">Uitloggen</a></p>
 </body>
