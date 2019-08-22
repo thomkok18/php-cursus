@@ -29,7 +29,7 @@ class Programma {
 
     /**
      * Geef het programma een naam
-     * @param $naam als string
+     * @param $naam string
      */
     public function setNaam($naam) {
         if (strlen($naam) >= 2) {
@@ -39,7 +39,7 @@ class Programma {
 
     /**
      * Geef het programma een omschrijving
-     * @param $omschrijving als string
+     * @param $omschrijving string
      */
     public function setOmschrijving($omschrijving) {
         $this->omschrijving = $omschrijving;
@@ -47,7 +47,7 @@ class Programma {
 
     /**
      * Geef de naam van het programma terug
-     * @param $naam als string
+     * @return string
      */
     public function getNaam() {
         return $this->naam;
@@ -55,7 +55,7 @@ class Programma {
 
     /**
      * Geef de omschrijving van het programma terug
-     * @param $omschrijving als string
+     * @return string
      */
     public function getOmschrijving() {
         return $this->omschrijving;
